@@ -46,13 +46,12 @@ export default {
       slots: []
     };
   },
-  mounted() {
-    fetch("https://yzmmifgs91.execute-api.us-east-1.amazonaws.com/dev/slots")
-      .then(res => res.json())
-      .then(data => {
-        const parsed = JSON.parse(data.body);
-        this.slots = parsed.filter(s => !s.isBooked).map(s => s.slot);
-      });
+ fetch("https://yzmmifgs91.execute-api.us-east-1.amazonaws.com/dev/slots")
+  .then(res => res.json())
+  .then(data => {
+    this.slots = data.filter(s => !s.isBooked).map(s => s.slot);
+  });
+
   },
   methods: {
     submitAppointment() {

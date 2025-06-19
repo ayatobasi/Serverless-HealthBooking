@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     fetchAppointments() {
-      fetch("https://yzmmifgs91.execute-api.us-east-1.amazonaws.com/dev/appointments")
+      fetch("https://nup89vg7a8.execute-api.us-east-1.amazonaws.com/test/appointments")
         .then(res => res.json())
         .then(data => {
           const parsed = JSON.parse(data.body);
@@ -74,7 +74,7 @@ export default {
       console.log("appointmentId:", cleanAppointment.appointmentId);
       console.log(" appointmentId (direct):", appointment.appointmentId);
 
-      const url = `https://yzmmifgs91.execute-api.us-east-1.amazonaws.com/dev/appointments/{appointmentId+}`;
+      const url = `https://nup89vg7a8.execute-api.us-east-1.amazonaws.com/test/appointments/{appointmentId}`;
 
       const payload = { status: newStatus };
 

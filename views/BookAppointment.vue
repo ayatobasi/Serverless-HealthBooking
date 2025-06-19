@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <nav class="navbar navbar-light bg-white shadow-sm mb-4">
@@ -46,12 +45,16 @@ export default {
       slots: []
     };
   },
- fetch("https://yzmmifgs91.execute-api.us-east-1.amazonaws.com/dev/slots")
-  .then(res => res.json())
-  .then(data => {
-    this.slots = data.filter(s => !s.isBooked).map(s => s.slot);
-  });
-
+  // ✅ لازم يكون داخل mounted
+  mounted() {
+    fetch("https://yzmmifgs91.execute-api.us-east-1.amazonaws.com/dev/slots")
+      .then(res => res.json())
+      .then(data => {
+        this.slots = data.filter(s => !s.isBooked).map(s => s.slot);
+      })
+      .catch(err => {
+        console.error("Error fetching slots:", err);
+      });
   },
   methods: {
     submitAppointment() {

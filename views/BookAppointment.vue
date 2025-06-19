@@ -47,7 +47,7 @@ export default {
     };
   },
   mounted() {
-    fetch("https://yzmmifgs91.execute-api.us-east-1.amazonaws.com/dev/slots")
+    fetch("https://nup89vg7a8.execute-api.us-east-1.amazonaws.com/test/slots")
       .then(res => res.json())
       .then(data => {
         this.slots = data.filter(s => !s.isBooked).map(s => s.slot);
@@ -63,7 +63,7 @@ export default {
         symptoms: this.symptoms,
         slot: this.selectedSlot
       };
-      fetch("https://yzmmifgs91.execute-api.us-east-1.amazonaws.com/dev/appointments", {
+      fetch("https://nup89vg7a8.execute-api.us-east-1.amazonaws.com/test/appointments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ body: JSON.stringify(payload) })
